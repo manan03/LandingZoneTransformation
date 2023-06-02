@@ -1,0 +1,50 @@
+{
+    "AWSTemplateFormatVersion": "2011-09-09",
+    "Ec2Instance": {
+        "Type1": "AWS::EC2::Instance",
+        "Properties1": {
+            "ImageId": {
+                "Fn::FindInMap": [
+                    "AWSRegionArch2AMI",
+                    {
+                        "Ref": "AWS::Region"
+                    },
+                    {
+                        "Fn::FindInMap": [
+                            "AWSInstanceType2Arch",
+                            {
+                                "Ref": "InstanceType"
+                            },
+                            "Arch"
+                        ]
+                    }
+                ]
+            },
+            "KeyName": {
+                "Ref": "KeyName"
+            },
+            "InstanceType": {
+                "Ref": "InstanceType"
+            },
+            "SecurityGroups": [
+                {
+                    "Ref": "Ec2SecurityGroup"
+                }
+            ],
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "VolumeSize": "50"
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdm",
+                    "Ebs": {
+                        "VolumeSize": "100"
+                    }
+                }
+            ]
+        }
+    }
+}

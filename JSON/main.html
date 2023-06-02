@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create JSON File</title>
+    <script>
+        function createJsonFile() {
+            // Retrieve the JSON text from the text entry field
+            var jsonText = document.getElementById("jsonText").value;
+
+            // Create a Blob with the JSON text
+            var blob = new Blob([jsonText], {type: "application/json"});
+
+            // Create a File object
+            var file = new File([blob], "temp4.json");
+
+            // Create a file URL for the File object
+            var fileUrl = URL.createObjectURL(file);
+
+            // Create a link element
+            var link = document.createElement("a");
+            link.href = fileUrl;
+            link.setAttribute("download", "temp4.json");
+
+            // Append the link element to the document body
+            document.body.appendChild(link);
+
+            // Programmatically click the link to trigger the file creation
+            link.click();
+
+            // Clean up the created elements
+            document.body.removeChild(link);
+            URL.revokeObjectURL(fileUrl);
+        }
+    </script>
+</head>
+<body>
+    <h1>Create JSON File</h1>
+
+    <label for="jsonText">Enter JSON text:</label>
+    <br>
+    <textarea id="jsonText" rows="10" cols="50"></textarea>
+    <br>
+    <button onclick="createJsonFile()">Create File</button>
+</body>
+</html>

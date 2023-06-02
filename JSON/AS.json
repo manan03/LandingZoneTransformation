@@ -1,0 +1,24 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  
+  "myASG" : {
+    "Type" : "AWS::AutoScaling::AutoScalingGroup",
+    "Properties" : {
+       "VPCZoneIdentifier" : [ "subnetIdAz1", "subnetIdAz2", "subnetIdAz3" ],
+       "LaunchTemplate" : {
+         "LaunchTemplateId" : {
+           "Ref" : "myLaunchTemplate"
+         },
+         "Version" : {
+           "Fn::GetAtt" : [
+             "myLaunchTemplate",
+             "LatestVersionNumber"
+           ]
+         }
+       },
+       "MaxSize" : "1",
+       "MinSize" : "0",
+       "DesiredCapacity" : "1"
+    }
+ }
+}

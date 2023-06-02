@@ -1,0 +1,21 @@
+dict1 = {
+    "Type": "Type1",
+    "VPCZoneIdentifier": "VPCZoneIdentifier1",
+    "LaunchTemplate": "LaunchTemplate1",
+    "LaunchTemplateId": "LaunchTemplateId1",
+    "myASG": "myASG1",
+    "Properties": "Properties1",
+    "Description": "Description1",
+    "Version": "Version1",
+    "GetAtt": "GetAtt1",
+    "MaxSize": "MaxSize1",
+    "MinSize": "MinSize1",
+    "DesiredCapacity": "DesiredCapacity1",
+    "2010-09-09": "2011-09-09",
+    "Type2": "Type1",
+    "Properties2": "Properties1",
+    "VPCZoneIdentifier2": "VPCZoneIdentifier1",
+    "LaunchTemplate2": "LaunchTemplate1",
+    "LaunchTemplateId2": "LaunchTemplateId1",
+    "Properties5": "Properties1"
+}
